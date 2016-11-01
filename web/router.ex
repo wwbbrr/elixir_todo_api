@@ -12,15 +12,15 @@ defmodule PhoenixTodosApi.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
-
-  scope "/", PhoenixTodosApi do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
+  #
+  # scope "/", PhoenixTodosApi do
+  #   pipe_through :browser # Use the default browser stack
+  #
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
-  scope "/api", PhoenixTodosApi do
+  scope "/", PhoenixTodosApi do
     pipe_through :api
     resources "/todos", TodoController, except: [:new, :edit]
   end
